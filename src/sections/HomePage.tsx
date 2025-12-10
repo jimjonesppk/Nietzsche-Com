@@ -1,15 +1,47 @@
-import React from "react"
-import "./App.css" // keep this for now, but you can clean it up later
-import { Navbar } from "./sections/Navbar"
+import { Navbar } from "./Navbar"
 
-const App: React.FC = () => {
+const saleProducts = [
+  {
+    id: 1,
+    name: "Minimalist Hoodie",
+    tag: "Best seller",
+    oldPrice: "₹2,499",
+    price: "₹1,599",
+    discount: "-36%",
+  },
+  {
+    id: 2,
+    name: "Everyday T-Shirt Pack (3)",
+    tag: "Bundle",
+    oldPrice: "₹1,999",
+    price: "₹1,299",
+    discount: "-35%",
+  },
+  {
+    id: 3,
+    name: "Comfort Joggers",
+    tag: "Limited stock",
+    oldPrice: "₹2,199",
+    price: "₹1,499",
+    discount: "-32%",
+  },
+  {
+    id: 4,
+    name: "Oversized Tee",
+    tag: "New on sale",
+    oldPrice: "₹1,299",
+    price: "₹899",
+    discount: "-31%",
+  },
+]
+
+export function HomePage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
 
-      {/* MAIN CONTENT */}
       <main className="mx-auto max-w-6xl px-4 pb-16 pt-8 sm:px-6 lg:px-8">
-        {/* HERO / COLLECTIONS */}
+        {/* Hero / Collections section (just a placeholder) */}
         <section
           id="collections"
           className="grid gap-8 border-b border-border pb-12 md:grid-cols-[1.2fr_0.8fr]"
@@ -19,11 +51,11 @@ const App: React.FC = () => {
               curated drops
             </p>
             <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-              Nieche Ekom – niche pieces for everyday wear.
+              Everyday streetwear for niche vibes.
             </h1>
             <p className="max-w-xl text-sm text-muted-foreground">
-              Build a wardrobe that actually feels like you. Small-batch
-              collections, clean fits, and fabrics that survive real life.
+              Build your signature look with tightly curated collections, limited
+              runs, and quality basics that actually last.
             </p>
 
             <div className="flex flex-wrap gap-3 pt-2">
@@ -40,9 +72,19 @@ const App: React.FC = () => {
                 View new arrivals
               </a>
             </div>
+
+            <div className="flex gap-6 pt-4 text-xs text-muted-foreground">
+              <div>
+                <p className="font-medium text-foreground">Free shipping</p>
+                <p>On orders over ₹1,999</p>
+              </div>
+              <div>
+                <p className="font-medium text-foreground">Easy returns</p>
+                <p>15-day hassle-free</p>
+              </div>
+            </div>
           </div>
 
-          {/* Simple hero card */}
           <div className="flex items-center justify-center">
             <div className="relative h-52 w-full max-w-sm overflow-hidden rounded-2xl border border-border bg-muted">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_hsl(var(--primary))/0.18,_transparent_60%)]" />
@@ -52,7 +94,7 @@ const App: React.FC = () => {
                 </div>
                 <div>
                   <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                    nieche ekom edit
+                    nichestore edit
                   </p>
                   <h2 className="mt-1 text-xl font-semibold">
                     Capsule Wardrobe Kit
@@ -66,7 +108,7 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* NEW ARRIVALS */}
+        {/* New Arrivals (simple placeholder) */}
         <section id="new" className="space-y-4 border-b border-border py-12">
           <div className="flex items-center justify-between gap-4">
             <div>
@@ -74,7 +116,7 @@ const App: React.FC = () => {
                 New arrivals
               </h2>
               <p className="text-sm text-muted-foreground">
-                Fresh pieces just dropped. Limited stocks first, always.
+                Fresh drops this week. Limited sizes first, always.
               </p>
             </div>
             <button className="hidden rounded-full border border-border px-3 py-1.5 text-xs font-medium text-muted-foreground hover:bg-accent hover:text-accent-foreground sm:inline-flex">
@@ -105,7 +147,7 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* SALE */}
+        {/* SALE SECTION – the main thing you asked for */}
         <section id="sale" className="space-y-6 border-b border-border py-12">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div className="space-y-2">
@@ -116,66 +158,37 @@ const App: React.FC = () => {
                 Sale picks – same quality, nicer price.
               </h2>
               <p className="max-w-xl text-sm text-muted-foreground">
-                End-of-run pieces, overstock, and community favourites. Limited
-                quantities, no compromise on quality.
+                End-of-run pieces, overstock, and community favourites.
+                Limited quantities, no compromise on quality.
               </p>
             </div>
 
             <div className="rounded-full border border-dashed border-red-500/40 px-4 py-2 text-xs text-red-500">
-              Extra 10% off over ₹2,499
+              Extra 10% off at checkout on orders over ₹2,499
             </div>
           </div>
 
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                name: "Minimalist Hoodie",
-                old: "₹2,499",
-                price: "₹1,599",
-                discount: "-36%",
-                tag: "Best seller",
-              },
-              {
-                name: "Oversized Tee",
-                old: "₹1,299",
-                price: "₹899",
-                discount: "-31%",
-                tag: "New on sale",
-              },
-              {
-                name: "Comfort Joggers",
-                old: "₹2,199",
-                price: "₹1,499",
-                discount: "-32%",
-                tag: "Limited stock",
-              },
-              {
-                name: "Everyday T-Shirt Pack (3)",
-                old: "₹1,999",
-                price: "₹1,299",
-                discount: "-35%",
-                tag: "Bundle",
-              },
-            ].map((p) => (
+            {saleProducts.map((product) => (
               <article
-                key={p.name}
+                key={product.id}
                 className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card"
               >
                 <div className="relative h-40 bg-muted">
                   <div className="absolute left-2 top-2 rounded-full bg-background/90 px-2.5 py-1 text-[10px] font-medium uppercase tracking-wide text-muted-foreground shadow-sm">
-                    {p.tag}
+                    {product.tag}
                   </div>
                   <div className="absolute right-2 top-2 rounded-full bg-red-500 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-primary-foreground">
-                    {p.discount}
+                    {product.discount}
                   </div>
                 </div>
                 <div className="flex flex-1 flex-col justify-between p-3">
                   <div className="space-y-1">
-                    <h3 className="text-sm font-medium">{p.name}</h3>
+                    <h3 className="text-sm font-medium">{product.name}</h3>
                     <div className="flex items-baseline gap-2 text-sm">
-                      <span className="font-semibold">{p.price}</span>
+                      <span className="font-semibold">{product.price}</span>
                       <span className="text-xs text-muted-foreground line-through">
-                        {p.old}
+                        {product.oldPrice}
                       </span>
                     </div>
                   </div>
@@ -186,26 +199,34 @@ const App: React.FC = () => {
               </article>
             ))}
           </div>
+
+          <p className="text-[11px] text-muted-foreground">
+            *Sale pieces are final for hygiene reasons. Size exchanges possible
+            if stock is available.
+          </p>
         </section>
 
-        {/* ABOUT */}
+        {/* ABOUT SECTION */}
         <section id="about" className="space-y-8 py-12">
           <div className="grid gap-10 md:grid-cols-[1.4fr_0.9fr] md:items-start">
             <div className="space-y-4">
               <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-                about nieche ekom
+                about nichestore
               </p>
               <h2 className="text-2xl font-semibold tracking-tight">
-                Small brand, big wardrobe energy.
+                Built for people who actually wear their clothes.
               </h2>
               <p className="text-sm text-muted-foreground">
-                Nieche Ekom is for people who are done with random impulse
-                buys. We keep the catalog tight, focus on fits that work, and
-                fabrics that feel good all day.
+                nichestore started with a simple idea: most wardrobes are 80%
+                “meh” and 20% “I love this”. We&apos;re obsessed with making
+                more of the second category – pieces that feel good, fit right,
+                and survive the weekly wash cycle without turning into a
+                completely different shade.
               </p>
               <p className="text-sm text-muted-foreground">
-                Think of it as your curated section of the internet where
-                everything actually goes together.
+                We work with small-batch manufacturers, keep our catalog focused
+                instead of bloated, and quietly ship out things you&apos;ll
+                probably overwear.
               </p>
 
               <div className="grid gap-4 pt-2 sm:grid-cols-3">
@@ -216,7 +237,7 @@ const App: React.FC = () => {
                   </p>
                 </div>
                 <div className="rounded-xl border border-border bg-card p-3">
-                  <p className="text-xl font-semibold">10k+</p>
+                  <p className="text-xl font-semibold">30k+</p>
                   <p className="text-xs text-muted-foreground">
                     Orders shipped
                   </p>
@@ -232,16 +253,16 @@ const App: React.FC = () => {
 
             <div className="space-y-4 rounded-2xl border border-border bg-card p-5">
               <h3 className="text-sm font-semibold tracking-tight">
-                Why people stick with us
+                What makes us different?
               </h3>
               <ul className="space-y-3 text-sm text-muted-foreground">
                 <li className="flex gap-2">
                   <span className="mt-1 text-xs">•</span>
                   <span>
                     <span className="font-medium text-foreground">
-                      Fewer, better pieces:
+                      Tight catalog:
                     </span>{" "}
-                    no endless scrolling, just solid picks.
+                    fewer products, more thought put into each fit and fabric.
                   </span>
                 </li>
                 <li className="flex gap-2">
@@ -250,30 +271,35 @@ const App: React.FC = () => {
                     <span className="font-medium text-foreground">
                       Fair pricing:
                     </span>{" "}
-                    online-first model, no extra fluff.
+                    we keep things online-first and transparent to cut fluff
+                    costs.
                   </span>
                 </li>
                 <li className="flex gap-2">
                   <span className="mt-1 text-xs">•</span>
                   <span>
                     <span className="font-medium text-foreground">
-                      Real feedback loop:
+                      Community-driven:
                     </span>{" "}
-                    drops and restocks are shaped by customer reviews.
+                    we tweak fits and colours based on actual customer feedback.
                   </span>
                 </li>
               </ul>
+
+              <div className="mt-4 rounded-xl bg-muted p-4 text-xs text-muted-foreground">
+                <p className="font-medium text-foreground">
+                  P.S. We&apos;re tiny, not a giant brand.
+                </p>
+                <p className="mt-1">
+                  If you reply to our emails or DMs, you&apos;re probably
+                  talking to the same 2–3 people who obsess over product
+                  mockups. No bots, just too much coffee.
+                </p>
+              </div>
             </div>
           </div>
         </section>
       </main>
-
-      {/* FOOTER */}
-      <footer className="border-t border-border py-6 text-center text-xs text-muted-foreground">
-        &copy; {new Date().getFullYear()} Nieche Ekom. All rights reserved.
-      </footer>
     </div>
   )
 }
-
-export default App
