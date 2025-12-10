@@ -1,11 +1,14 @@
 import React from "react"
 import "./App.css" // keep this for now, but you can clean it up later
 import { Navbar } from "./sections/Navbar"
+import FC3TrackingLoader from "./components/FC3TrackingLoader"
 
 const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
+
+      {/* <FC3TrackingLoader label="TRACKING" width={300} height={18} speed={2} /> */}
 
       {/* MAIN CONTENT */}
       <main className="mx-auto max-w-6xl px-4 pb-16 pt-8 sm:px-6 lg:px-8">
