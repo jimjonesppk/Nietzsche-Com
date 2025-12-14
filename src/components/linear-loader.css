@@ -1,0 +1,57 @@
+/* linear-loader.css */
+.linear-loader-wrap {
+  display: inline-block;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.14);
+  /* --max and --seg-w are set inline by React */
+}
+
+.linear-loader-track {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: var(--track-bg, hsla(0, 97%, 72%, 0.08));
+}
+
+/* the moving segment */
+.linear-loader-segment {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateX(0) translateY(-50%);
+  height: calc(100% - 6px);
+  width: var(--seg-w, 36px);
+  border-radius: 2px;
+  background: var(--seg-bg, linear-gradient(90deg,#fff,#f3f3f3));
+  box-shadow: 0 0 8px rgba(0,0,0,0.08) inset;
+  will-change: transform;
+  animation: linear-slide var(--speed, 1.8s) linear infinite;
+}
+
+/* Core keyframes — uses CSS variable --max (px value) */
+@keyframes linear-slide {
+  0%   { transform: translateX(0) translateY(-50%); }
+  50%  { transform: translateX(var(--max, 200px)) translateY(-50%); }
+  100% { transform: translateX(0) translateY(-50%); }
+}
+
+/* center ticks for the look */
+.linear-loader-tick {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  height: 70%;
+  margin: auto 0;
+  background: rgba(255,255,255,0.18);
+}
+
+/* reduced motion respect */
+@media (prefers-reduced-motion: reduce) {
+  .linear-loader-segment {
+    animation: none !important;
+    transform: translateX(0) translateY(-50%) !important;
+  }
+}

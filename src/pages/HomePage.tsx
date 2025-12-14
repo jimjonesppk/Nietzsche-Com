@@ -9,7 +9,6 @@ export function HomePage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
-
       <main className="mx-auto max-w-6xl px-4 pb-16 pt-8 sm:px-6 lg:px-8">
         <HeroSection />
         <NewArrivalsSection />

@@ -1,3 +1,4 @@
+// src/sections/SaleSection.tsx
 import React from "react"
 
 const saleProducts = [
